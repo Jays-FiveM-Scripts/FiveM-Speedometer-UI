@@ -1,11 +1,12 @@
-#root {
+#speedo_root {
   margin: 0 auto;
   text-align: center;
   width: 100dvw;
   height: 100dvh;
+  position: absolute;
 }
 
-:root {
+:speedo_root {
   font-family: Rubik, sans-serif;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
@@ -146,4 +147,19 @@ h1 {
 
 .speedo.shake {
   animation: shake 0.9s infinite;
+}
+.speedo_container {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.speedo_container.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.speedo_container.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
