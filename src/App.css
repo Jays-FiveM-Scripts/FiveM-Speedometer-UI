@@ -9,7 +9,6 @@
   font-family: Rubik, sans-serif;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: rgb(0, 0, 0);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +23,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  overflow:hidden
 }
 
 h1 {
@@ -48,7 +48,9 @@ h1 {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 1%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .speedo {
@@ -59,26 +61,89 @@ h1 {
   justify-content: flex-end;
   flex-direction: column;
   gap: 0%;
+  overflow: hidden;
+    position: relative;
+  width: 200px;
+  height: 200px;
 }
 
 .speed {
   display: flex;
   gap: 0.1vw; /* Adjusted the gap to be smaller */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .speed span {
-  font-size: 4dvh;
+  font-size:2.5dvh;
   color: rgb(241, 241, 241);
   font-weight: 600;
   text-transform: uppercase;
-  text-shadow: 0 0 15px rgba(134, 134, 134, 0.582);
+  text-shadow: 0 0 15px rgba(134, 134, 134, 0.8);
 }
 
 .speed .greyed-out {
-  color: grey;
+}
+
+
+
+.speedo-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-180deg);
+  overflow: hidden;
+
+}
+.speedo-circle > circle{
+  fill: rgba(36, 36, 36, 0.199)
+}
+
+.bg-circle {
+  stroke: #333;
+  opacity: 0.3;
+  
+}
+
+.progress-circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.speed-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.speed {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-weight: 900;
+  color: white !important;
 }
 
 .mph {
-  font-weight: 600;
-  margin: 0.2%;
+  display: block;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.greyed-out {
+  color: #555;
+}
+@keyframes shake {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  20% { transform: translate(-2px, 2px) rotate(-1deg); }
+  40% { transform: translate(2px, -2px) rotate(1deg); }
+  60% { transform: translate(-2px, 2px) rotate(-1deg); }
+  80% { transform: translate(2px, -2px) rotate(1deg); }
+  100% { transform: translate(0px, 0px) rotate(3deg); }
+}
+
+.speedo.shake {
+  animation: shake 0.9s infinite;
 }
